@@ -1,4 +1,6 @@
 require("@nomicfoundation/hardhat-toolbox");
+require("hardhat-deploy");
+require("dotenv/config");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -10,13 +12,13 @@ module.exports = {
     },
     goerli: {
       url: process.env.GOERLI_RPC_URL,
-      accounts: [PRIVATE_KEY],
+      accounts: [process.env.PRIVATE_KEY],
       chainId: 5,
       blockConfirmations: 6,
     },
     mainnet: {
       url: process.env.MAINNET_RPC_URL,
-      accounts: [PRIVATE_KEY],
+      accounts: [process.env.PRIVATE_KEY],
       chainId: 1,
       blockConfirmations: 6,
     },
@@ -24,10 +26,7 @@ module.exports = {
   solidity: {
     compilers: [
       {
-        version: "0.8.8",
-      },
-      {
-        version: "0.6.6",
+        version: "0.8.9",
       },
     ],
   },
